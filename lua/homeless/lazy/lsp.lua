@@ -11,6 +11,25 @@ return {
     -- "L3MON4D3/LuaSnip",
     -- "saadparwaiz1/cmp_luasnip",
     "j-hui/fidget.nvim",
+    {
+      "folke/trouble.nvim",
+      dependencies = { "nvim-tree/nvim-web-devicons" },
+      opts = {
+        -- your configuration comes here
+        -- or leave it empty to use the default settings
+        -- refer to the configuration section below
+      },
+      config = function()
+        require("trouble").setup({})
+        -- Lua
+        -- vim.keymap.set("n", "<leader>xx", function() require("trouble").toggle() end)
+        -- vim.keymap.set("n", "<leader>xw", function() require("trouble").toggle("workspace_diagnostics") end)
+        -- vim.keymap.set("n", "<leader>xd", function() require("trouble").toggle("document_diagnostics") end)
+        -- vim.keymap.set("n", "<leader>xq", function() require("trouble").toggle("quickfix") end)
+        -- vim.keymap.set("n", "<leader>xl", function() require("trouble").toggle("loclist") end)
+        -- vim.keymap.set("n", "gR", function() require("trouble").toggle("lsp_references") end)
+      end
+    },
   },
 
   config = function()
@@ -158,6 +177,7 @@ return {
         ['<C-p>'] = cmp.mapping.select_prev_item(cmp_select),
         ['<C-n>'] = cmp.mapping.select_next_item(cmp_select),
         ['<C-y>'] = cmp.mapping.confirm({ select = true }),
+        ['<CR>'] = cmp.mapping.confirm({ select = true }),
         ["<C-Space>"] = cmp.mapping.complete(),
 
         -- ['<C-b>'] = cmp.mapping.scroll_docs(-4),
@@ -176,7 +196,6 @@ return {
         -- { name = 'ultisnips' }, -- For ultisnips users.
         -- { name = 'snippy' }, -- For snippy users.
 
-      }, {
           { name = 'buffer' },
         })
     })

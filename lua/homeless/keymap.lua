@@ -104,12 +104,17 @@ vim.api.nvim_create_user_command(
   {}
 )
 
--- Lua mapping for handling the <TAB> key in insert mode
-vim.keymap.set('i', '<TAB>', function()
-    if vim.fn.pumvisible() == 1 then
-        return '<C-y>'
-    else
-        return '<TAB>'
-    end
-end, { noremap = true, expr = true, silent = true })
+-- -- Lua mapping for handling the <TAB> key in insert mode
+-- vim.keymap.set('i', '<TAB>', function()
+--     if vim.fn.pumvisible() == 1 then
+--         return '<C-y>'
+--     else
+--         return '<TAB>'
+--     end
+-- end, { noremap = true, expr = true, silent = true })
+
+
+vim.api.nvim_set_keymap('i', '<C-y>', '<C-y>', { noremap = true, silent = true })
+vim.api.nvim_set_keymap('c', '<C-y>', '<C-y>', { noremap = true, silent = true })
+
 

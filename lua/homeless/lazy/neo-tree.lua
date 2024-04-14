@@ -20,6 +20,8 @@ return {
         mappings = {
           ["P"] = { "toggle_preview", config = { use_float = false, use_image_nvim = false } },
           ["F"] = OpenCurrentDirectoryInFinder,
+          ["l"] = "right",
+          -- ["L"] = "focus_preview",
         }
       },
       close_if_last_window = true, -- Close Neo-tree if it is the last window left in the tab
@@ -52,6 +54,7 @@ return {
           },
           never_show_by_pattern = { -- uses glob style patterns
             --".null-ls_*",
+            "vendor/**/*/",
           },
         },
         follow_current_file = {
