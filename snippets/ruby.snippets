@@ -1,0 +1,194 @@
+snippet frozen
+	# frozen_string_literal: true
+snippet #!
+	#!/usr/bin/env ruby
+snippet case
+	case ${1:object}
+	when $2
+		${0}
+	end
+snippet switch
+	case ${1:object}
+	when $2
+		${0}
+	end
+snippet when
+	when $1
+		${0:${VISUAL}}
+snippet def
+	def ${1:method_name}
+		${0}
+	end
+snippet defm
+	def ${1:method}
+		@$1 ||= ${0}
+	end
+snippet defs
+	def self.${1:class_method_name}
+		${0}
+	end
+snippet if
+	if $1
+		${0:${VISUAL}}
+	end
+snippet ife
+	if $1
+		${2:${VISUAL}}
+	else
+		${0}
+	end
+snippet eif
+	elsif $1
+		${0:${VISUAL}}
+snippet ifee
+	if $1
+		$2
+	elsif $3
+		$4
+	else
+		$0
+	end
+# def initialize
+snippet definit
+	def initialize(${1:args})
+		${0}
+	end
+snippet tim
+	times { |${1:n}| ${0} }
+snippet e
+	each { |${1:e}| ${0} }
+snippet ed
+	each do |${1:e}|
+		${0}
+	end
+snippet ewo
+	each_with_object(${1:init}) { |${2:e}, ${3:acc}| ${0} }
+snippet ewod
+	each_with_object(${1:init}) do |${2:e}, ${3:acc}|
+		${0}
+	end
+snippet red
+	reduce(${1:init}) { |${2:mem}, ${3:var}| ${0} }
+snippet redd
+	reduce(${1:init}) do |${2:mem}, ${3:var}|
+		${0}
+	end
+snippet map
+	map { |${1:e}| ${0} }
+snippet mapd
+	map do |${1:e}|
+		${0}
+	end
+snippet sor
+	sort { |a, b| ${0} }
+snippet sorb
+	sort_by { |${1:e}| ${0} }
+snippet ran
+	sort_by { rand }
+snippet all
+	all? { |${1:e}| ${0} }
+snippet any
+	any? { |${1:e}| ${0} }
+snippet col
+	collect { |${1:e}| ${0} }
+snippet cold
+	collect do |${1:e}|
+		${0}
+	end
+snippet det
+	detect { |${1:e}| ${0} }
+snippet detd
+	detect do |${1:e}|
+		${0}
+	end
+snippet fin
+	find { |${1:e}| ${0} }
+snippet find
+	find do |${1:e}|
+		${0}
+	end
+snippet rej
+	reject { |${1:e}| ${0} }
+snippet rejd
+	reject do |${1:e}|
+		${0}
+	end
+snippet sel
+	select { |${1:e}| ${0} }
+snippet seld
+	select do |${1:e}|
+		${0}
+	end
+
+# Benchmark.bmbm do .. end
+snippet bm-
+	TESTS = ${1:10_000}
+	Benchmark.bmbm do |results|
+		${0}
+	end
+
+
+snippet b
+	{ |${1:var}| ${0} }
+
+
+snippet break
+	binding.break
+
+snippet strf
+	strftime('${1:%Y-%m-%d %H:%M:%S %z}')${0}
+
+
+
+
+snippet desc
+	describe '${1:#method}' do
+		${0:pending 'Not implemented'}
+	end
+snippet bef
+	before :${1:each} do
+		${0}
+	end
+snippet aft
+	after :${1:each} do
+		${0}
+	end
+snippet let
+	let(:${1:object}) { ${0} }
+snippet let!
+	let!(:${1:object}) { ${0} }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
