@@ -3,7 +3,6 @@ return {
     "nvim-lua/plenary.nvim",
     name = "plenary"
   },
-  { "MunifTanjim/nui.nvim", },
   {
     "nvim-tree/nvim-web-devicons",
     name = "nvim-web-devicons",

@@ -20,7 +20,9 @@ return {
         mappings = {
           ["P"] = { "toggle_preview", config = { use_float = false, use_image_nvim = false } },
           ["F"] = OpenCurrentDirectoryInFinder,
-          ["l"] = "right",
+          -- ["l"] = "right",
+          ["l"] = { "noop"  },
+          ["/"] = { "noop"  },
           -- ["L"] = "focus_preview",
         }
       },
