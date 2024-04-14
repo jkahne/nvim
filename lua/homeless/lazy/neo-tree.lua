@@ -20,10 +20,8 @@ return {
         mappings = {
           ["P"] = { "toggle_preview", config = { use_float = false, use_image_nvim = false } },
           ["F"] = OpenCurrentDirectoryInFinder,
-          -- ["l"] = "right",
-          ["l"] = { "noop"  },
-          ["/"] = { "noop"  },
-          -- ["L"] = "focus_preview",
+          ["l"] = "noop" ,
+          ["/"] = "noop" ,
         }
       },
       close_if_last_window = true, -- Close Neo-tree if it is the last window left in the tab
