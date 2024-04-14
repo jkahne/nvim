@@ -169,7 +169,7 @@ return {
         header = "",
         prefix = "",
       },
-      virtual_text = true,
+      virtual_text = false,
       signs = false,
       underline = false,
 
