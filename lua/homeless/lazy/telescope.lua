@@ -85,7 +85,8 @@ return {
     vim.keymap.set('n', '<leader>b', builtin.buffers, {})
     vim.keymap.set('n', '<leader>c', builtin.commands, {})
     vim.keymap.set('n', '<leader>ht', builtin.help_tags, {})
-    vim.keymap.set('n', '<leader>g', builtin.live_grep, {})
+    vim.keymap.set('n', '<leader>ef', builtin.live_grep, {})
+    vim.keymap.set('n', '<leader>gf', builtin.git_files, {})
     vim.keymap.set('n', '<leader>m', builtin.marks, {})
     vim.keymap.set('n', '<leader>h', builtin.quickfixhistory, {})
 

@@ -58,7 +58,6 @@ return {
       },
       handlers = {
         function(server_name) -- default handler (optional)
-
           require("lspconfig")[server_name].setup {
             capabilities = capabilities
           }
@@ -82,7 +81,7 @@ return {
     })
 
     local lspconfig = require("lspconfig")
-    lspconfig.tailwindcss.setup{
+    lspconfig.tailwindcss.setup {
       -- cmd = { "/Users/nick/.config/nvim/language-servers/node_modules/.bin/tailwindcss-language-server", "--stdio" }
       capabilities = capabilities,
       -- on_attach = on_attach,
@@ -112,8 +111,8 @@ return {
       }
     }
 
-    lspconfig.solargraph.setup{
-      capabilities = capabilities ,
+    lspconfig.solargraph.setup {
+      capabilities = capabilities,
       diagnostics = false -- Enable diagnostics
     }
 
@@ -154,10 +153,10 @@ return {
         -- { name = 'luasnip' }, -- For luasnip users.
         -- { name = 'ultisnips' }, -- For ultisnips users.
         { name = 'snippy' }, -- For snippy users.
-      },{
+      }, {
 
-          { name = 'buffer' },
-        })
+        { name = 'buffer' },
+      })
     })
 
     require('snippy').setup({
@@ -188,18 +187,24 @@ return {
 
     })
 
-    vim.keymap.set('n', 'gd', vim.lsp.buf.definition, { silent = true, noremap = true })
-    vim.keymap.set('n', 'gD', vim.lsp.buf.declaration, { silent = true, noremap = true })
-    vim.keymap.set('n', 'gi', vim.lsp.buf.implementation, { silent = true, noremap = true })
-    vim.keymap.set('n', 'gr', vim.lsp.buf.references, { silent = true, noremap = true })
-    vim.keymap.set('n', 'K',  vim.lsp.buf.hover, { silent = true, noremap = true })
-    vim.keymap.set('n', 'gq', vim.lsp.buf.code_action, { silent = true, noremap = true })
+    -- vim.keymap.set('n', 'gd', vim.lsp.buf.definition, { silent = true, noremap = true })
+    -- vim.keymap.set('n', 'gD', vim.lsp.buf.declaration, { silent = true, noremap = true })
+    -- vim.keymap.set('n', 'gi', vim.lsp.buf.implementation, { silent = true, noremap = true })
+    -- vim.keymap.set('n', 'gr', vim.lsp.buf.references, { silent = true, noremap = true })
+    vim.keymap.set('n', 'K', vim.lsp.buf.hover, { silent = true, noremap = true })
+
+    vim.keymap.set('n', 'gd', require('telescope.builtin').lsp_definitions, { silent = true, noremap = true })
+    vim.keymap.set('n', 'gD', require('telescope.builtin').lsp_type_definitions, { silent = true, noremap = true })
+    vim.keymap.set('n', 'gi', require('telescope.builtin').lsp_implementations, { silent = true, noremap = true })
+    vim.keymap.set('n', 'gr', require('telescope.builtin').lsp_references, { silent = true, noremap = true })
+    vim.keymap.set('n', '<leader>rn', vim.lsp.buf.rename, { silent = true, noremap = true })
+    -- vim.keymap.set('n', 'gq', vim.lsp.buf.code_action, { silent = true, noremap = true })
+    vim.keymap.set('n', '<leader>ca', vim.lsp.buf.code_action, { silent = true, noremap = true })
 
     vim.keymap.set('n', 'ff', vim.lsp.buf.format, { silent = true, noremap = true })
 
 
     vim.keymap.set('n', 'g[', vim.diagnostic.goto_prev, { silent = true, noremap = true })
     vim.keymap.set('n', 'g]', vim.diagnostic.goto_next, { silent = true, noremap = true })
-
   end
 }

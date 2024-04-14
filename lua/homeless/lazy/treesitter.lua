@@ -9,7 +9,8 @@ return {
         "elixir", "heex", "eex",
         "javascript", "json", "json5", "lua", "markdown",
         "sql", "tsx", "typescript", "ruby",
-        "embedded_template", "bash", "astro", "c"
+        "embedded_template", "bash", "astro", "c",
+        "vimdoc", "jsdoc"
       },
 
       -- Install parsers synchronously (only applied to `ensure_installed`)

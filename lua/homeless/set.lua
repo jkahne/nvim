@@ -69,6 +69,15 @@ vim.api.nvim_create_autocmd('WinLeave', {
     command = 'set nocursorline'
 })
 
+vim.api.nvim_create_autocmd("TextYankPost", {
+  desc = "Highligh when yanking test",
+  group = vim.api.nvim_create_augroup("YankHighlight", { clear = true }),
+  callback = function()
+    -- vim.highlight.on_yank({ higroup = "IncSearch", timeout = 200 })
+    vim.highlight.on_yank()
+  end
+})
+
 -- Close the current buffer and move to the previous one
 vim.keymap.set('n', '<leader>bd', ':bp <bar> bd #<CR>', { noremap = true, silent = true })
 -- Close all buffers except the current one
@@ -84,6 +93,7 @@ vim.api.nvim_create_autocmd("FileType", {
     end,
     group = vim.api.nvim_create_augroup("ElixirSettings", { clear = true })
 })
+
 vim.api.nvim_create_autocmd("FileType", {
     pattern = "ruby",
     callback = function()
