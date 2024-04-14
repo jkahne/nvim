@@ -64,47 +64,6 @@ return {
           }
         end,
 
-        -- ["solargraph"] = function()
-        --   local lspconfig = require("lspconfig")
-        --   lspconfig.solargraph.setup{
-        --     capabilities = capabilities ,
-        --     diagnostics = false -- Enable diagnostics
-        --   }
-        -- end,
-
-        -- ["tailwindcss"] = function()
-        --   local lspconfig = require("lspconfig")
-        --   lspconfig.tailwindcss.setup{
-        --     -- cmd = { "/Users/nick/.config/nvim/language-servers/node_modules/.bin/tailwindcss-language-server", "--stdio" }
-        --     capabilities = capabilities,
-        --     -- on_attach = on_attach,
-        --     -- on_attach = function(bufnr),
-        --     settings = {
-        --       tailwindCSS = {
-        --         classAttributes = { "class", "className", "class:list", "classList", "ngClass", "class: " },
-        --         emmetCompletions = true,
-        --         lint = {
-        --           cssConflict = "warning",
-        --           invalidApply = "error",
-        --           invalidConfigPath = "error",
-        --           invalidScreen = "error",
-        --           invalidTailwindDirective = "error",
-        --           invalidVariant = "error",
-        --           recommendedVariantOrder = "warning"
-        --         },
-        --         validate = true
-        --       }
-        --     },
-        --     userLanguages = {
-        --       eelixir = "html-eex",
-        --       eruby = "erb",
-        --       ruby = "rb",
-        --       html = 'html',
-        --       css = 'css'
-        --     }
-        --   }
-        -- end,
-
         ["lua_ls"] = function()
           local lspconfig = require("lspconfig")
           lspconfig.lua_ls.setup {
