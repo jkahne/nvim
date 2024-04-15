@@ -9,6 +9,7 @@ vim.opt.expandtab   = true
 vim.opt.shiftround  = true
 
 vim.opt.smartindent = true
+vim.o.completeopt = "menuone,noselect"
 
 vim.opt.wrap = false
 
@@ -95,8 +96,6 @@ vim.api.nvim_create_autocmd("ColorScheme", {
     vim.api.nvim_set_hl(0, "LineHighlight", { bg = "#56B6C2", fg = "#000000" })
     vim.api.nvim_set_hl(0, "NeoTreeDirectoryName", { fg = "#D19A66", bold = true })
     vim.api.nvim_set_hl(0, "NeoTreeFileName", { fg = "#abb2bf" })
-    vim.api.nvim_set_hl(0, "MatchParen", { fg = "#000000", bg = "#E5C07B" })
-
+    vim.api.nvim_set_hl(0, "MatchParen", { fg = "#000000", bg = "#989797" })
   end,
 })
-

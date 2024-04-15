@@ -1,4 +1,4 @@
-vim.g.mapleader = " "
+vim.g.mapleader = ","
 vim.keymap.set('i', '<Leader>,', '<Esc>', { noremap = true })
 vim.keymap.set('v', '<Leader>,', '<Esc>', { noremap = true })
 
@@ -35,6 +35,9 @@ vim.keymap.set('i', '<C-h>', '<Left>', { noremap = true })
 vim.keymap.set('i', '<C-j>', '<Down>', { noremap = true })
 vim.keymap.set('i', '<C-k>', '<Up>', { noremap = true })
 vim.keymap.set('i', '<C-l>', '<Right>', { noremap = true })
+
+vim.api.nvim_set_keymap('i', '<leader>j', '<Plug>(snippy-next)', {silent = true})
+vim.api.nvim_set_keymap('i', '<leader>k', '<Plug>(snippy-previous)', {silent = true})
 
 -- Mappings for =>, <%= %>, and #{}
 vim.keymap.set('i', '<C-Enter>', ' => ', { noremap = true })

@@ -22,7 +22,14 @@ return {
           ["l"] = "noop",
           ["/"] = "noop",
           ["x"] = "close_node",
-          ["m"] = { "move", config ={ show_path = "absolute"}}
+          ["m"] = { "move", config = { show_path = "absolute"} },
+          ["oc"] =  "noop",
+          ["od"] =  "noop",
+          ["om"] =  "noop",
+          ["on"] =  "noop",
+          ["os"] =  "noop",
+          ["ot"] =  "noop",
+          ["og"] =  "noop"
         }
       },
       close_if_last_window = true, -- Close Neo-tree if it is the last window left in the tab
@@ -74,6 +81,25 @@ return {
           enable_character_fade = true,
         },
         git_status = {
+          window = {
+            position = "float",
+            mappings = {
+              ["A"]  = "noop",
+              ["gu"] = "noop",
+              ["ga"] = "noop",
+              ["gr"] = "noop",
+              ["gc"] = "noop",
+              ["gp"] = "noop",
+              ["gg"] = "noop",
+              ["o"] =  "noop",
+              ["oc"] =  "noop",
+              ["od"] =  "noop",
+              ["om"] =  "noop",
+              ["on"] =  "noop",
+              ["os"] =  "noop",
+              ["ot"] =  "noop",
+            }
+          },
           symbols = {
             -- Change type
             added     = "✚", -- or "✚", but this is redundant info if you use git_status_colors on the name
