@@ -22,6 +22,7 @@ return {
           ["l"] = "noop",
           ["/"] = "noop",
           ["x"] = "close_node",
+          ["m"] = { "move", config ={ show_path = "absolute"}}
         }
       },
       close_if_last_window = true, -- Close Neo-tree if it is the last window left in the tab
