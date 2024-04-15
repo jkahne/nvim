@@ -1,6 +1,8 @@
 function ColorMyPencils(color)
 
   color = color or "terafox"
+  -- color = color or "happy_hacking"
+  -- color = color or "hybrid_reverse"
   vim.cmd.colorscheme(color)
 
   -- vim.api.nvim_set_hl(0, 'MatchParen', { ctermbg = 'Yellow', ctermfg = 'Black' })
@@ -9,6 +11,11 @@ function ColorMyPencils(color)
   -- vim.api.nvim_set_hl(0, "NormalFloat", { bg = "none" })
 
 
+  -- -- Set the highlighting for LineHighlight in Lua
+  -- vim.api.nvim_set_hl(0, 'LineHighlight', {
+  --   ctermbg = 'yellow',
+  --   ctermfg = 'darkgray',
+  -- })
 
 end
 
@@ -60,6 +67,13 @@ return {
   --
   --   end
   -- },
+  -- {
+  --   "rafi/awesome-vim-colorschemes",
+  --   config = function()
+  --     ColorMyPencils()
+  --   end
+  -- },
+
   {
     "EdenEast/nightfox.nvim" ,
     config = function()
