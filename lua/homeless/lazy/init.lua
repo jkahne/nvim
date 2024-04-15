@@ -77,20 +77,6 @@ return {
     end
   },
   {
-    "sindrets/diffview.nvim",
-  },
-  {
-    "NeogitOrg/neogit",
-    dependencies = {
-      "nvim-lua/plenary.nvim",         -- required
-      "sindrets/diffview.nvim",        -- optional - Diff integration
-
-      -- Only one of these is needed, not both.
-      "nvim-telescope/telescope.nvim", -- optional
-    },
-    config = true
-  },
-  {
     "vim-test/vim-test",
     config = function()
       vim.keymap.set('n', '<Leader>sa', ':TestSuite<CR>', { noremap = true, silent = true, desc = "Run Test Suite" })
