@@ -20,8 +20,9 @@ return {
         mappings = {
           ["P"] = { "toggle_preview", config = { use_float = false, use_image_nvim = false } },
           ["F"] = OpenCurrentDirectoryInFinder,
-          ["l"] = "noop" ,
-          ["/"] = "noop" ,
+          ["l"] = "noop",
+          ["/"] = "noop",
+          ["x"] = "close_node",
         }
       },
       close_if_last_window = true, -- Close Neo-tree if it is the last window left in the tab
@@ -54,7 +55,7 @@ return {
           },
           never_show_by_pattern = { -- uses glob style patterns
             --".null-ls_*",
-            "vendor/**/*/",
+            -- "vendor/**/*/",
           },
         },
         follow_current_file = {
@@ -63,6 +64,7 @@ return {
           leave_dirs_open = false, -- `false` closes auto expanded dirs, such as with `:Neotree reveal`
         },
       },
+
 
       default_component_configs = {
         container = {
