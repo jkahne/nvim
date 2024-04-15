@@ -40,11 +40,8 @@ return {
       },
     })
 
-
-    -- TODO  astro  tree sitter
+    -- TODO:  astro  tree sitter
     -- Plug 'virchau13/tree-sitter-astro'
-
-
 
     -- You might need to manually add the ERB parser if it's not officially supported:
     local parser_config = require "nvim-treesitter.parsers".get_parser_configs()

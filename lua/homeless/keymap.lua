@@ -74,10 +74,6 @@ vim.keymap.set('i', '.', '.<C-g>u', { noremap = true })
 vim.keymap.set('i', '!', '!<C-g>u', { noremap = true })
 vim.keymap.set('i', '?', '?<C-g>u', { noremap = true })
 
--- Tab navigation and management with leader key
-vim.keymap.set('n', '<Leader>>', ':tabnext<CR>', { noremap = false })
-vim.keymap.set('n', '<Leader><', ':tabprevious<CR>', { noremap = false })
-vim.keymap.set('n', '<Leader>T', ':tabnew<CR>', { noremap = false })
 
 -- Search and replace shortcuts
 vim.keymap.set('n', '<Leader>rr', ':%s//g<Left><Left>', { noremap = true })
@@ -108,17 +104,6 @@ vim.api.nvim_create_user_command(
   {}
 )
 
--- -- Lua mapping for handling the <TAB> key in insert mode
--- vim.keymap.set('i', '<TAB>', function()
---     if vim.fn.pumvisible() == 1 then
---         return '<C-y>'
---     else
---         return '<TAB>'
---     end
--- end, { noremap = true, expr = true, silent = true })
-
-
-
 vim.api.nvim_create_autocmd("FileType", {
     pattern = "elixir",
     callback = function()
@@ -136,9 +121,8 @@ vim.api.nvim_create_autocmd("FileType", {
     group = vim.api.nvim_create_augroup("RubySettings", { clear = true })
 })
 
-
-vim.api.nvim_set_keymap('i', '<C-y>', '<C-y>', { noremap = true, silent = true })
-vim.api.nvim_set_keymap('c', '<C-y>', '<C-y>', { noremap = true, silent = true })
+-- vim.api.nvim_set_keymap('i', '<C-y>', '<C-y>', { noremap = true, silent = true })
+-- vim.api.nvim_set_keymap('c', '<C-y>', '<C-y>', { noremap = true, silent = true })
 
 -- Close the current buffer and move to the previous one
 vim.keymap.set('n', '<leader>bd', ':bp <bar> bd #<CR>', { noremap = true, silent = true })
@@ -146,9 +130,6 @@ vim.keymap.set('n', '<leader>bd', ':bp <bar> bd #<CR>', { noremap = true, silent
 vim.keymap.set('n', '<leader>bo', ':up <bar> %bd <bar> e#<CR>', { noremap = true, silent = true })
 -- Switch between current and last buffer
 vim.keymap.set('n', '<Leader>c', '<C-^><CR>', { noremap = false, silent = true })
-
-
-
 
 -- Lua function to merge tabs in Neovim
 function MergeTabs()
@@ -176,4 +157,8 @@ end
 -- Mapping the function to a key or calling it in Lua
 -- For example, to call this function you can bind it to a key:
 vim.api.nvim_set_keymap('n', '<C-w>u', ':lua MergeTabs()<CR>', {noremap = true, silent = true})
+-- Tab navigation and management with leader key
+vim.keymap.set('n', '<Leader>>', ':tabnext<CR>', { noremap = false })
+vim.keymap.set('n', '<Leader><', ':tabprevious<CR>', { noremap = false })
+vim.keymap.set('n', '<Leader>T', ':tabnew<CR>', { noremap = false })
 

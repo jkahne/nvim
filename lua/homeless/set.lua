@@ -31,7 +31,6 @@ vim.opt.lazyredraw = true  -- Minimize redraw operations while executing macros 
 vim.opt.foldmethod = 'indent'  -- Use indentation levels to define folds
 vim.opt.foldlevel = 10  -- Set the depth of opened folds (high number to keep most folds open)
 
-
 vim.opt.termguicolors = true
 
 vim.opt.scrolloff = 4
@@ -40,18 +39,11 @@ vim.opt.signcolumn = "yes"
 
 vim.opt.updatetime = 50 -- 300
 -- vim.opt.timeoutlen = 300
-
-
 -- vim.opt.colorcolumn = "80"
 
 vim.opt.clipboard:append("unnamedplus")
 
-
--- Enable showing matching parentheses
 vim.opt.showmatch = true
--- vim.api.nvim_set_hl(0, 'MatchParen', { ctermbg = 'Yellow', ctermfg = 'Black' })
--- -- vim.api.nvim_set_hl(0, 'MatchParen', {ctermfg = 11, ctermbg = 232})  -- Using color codes for terminal
--- vim.cmd([[doautocmd ColorScheme]])
 
 
 -- Use Lua API to create autocommands for cursorline highlighting
@@ -73,44 +65,23 @@ vim.api.nvim_create_autocmd("TextYankPost", {
   desc = "Highligh when yanking test",
   group = vim.api.nvim_create_augroup("YankHighlight", { clear = true }),
   callback = function()
-    -- vim.highlight.on_yank({ higroup = "IncSearch", timeout = 200 })
+    vim.highlight.on_yank({ higroup = "IncSearch", timeout = 200 })
     vim.highlight.on_yank()
   end
 })
 
+vim.api.nvim_create_autocmd("ColorScheme", {
+  pattern = "*",
+  callback = function()
+    -- :help highlight
+    vim.api.nvim_set_hl(0, "Search", { bg = "#E5C07B", fg = "#455354", bold = true })
+    vim.api.nvim_set_hl(0, "CurSearch", { bg = "#D19A66", fg = "#455354", bold = true })
+    vim.api.nvim_set_hl(0, "PmenuSel", { bg = "#98C379", fg = "#FFFFFF" })
+    vim.api.nvim_set_hl(0, "LineHighlight", { bg = "#56B6C2", fg = "#000000" })
+    vim.api.nvim_set_hl(0, "NeoTreeDirectoryName", { fg = "#D19A66", bold = true })
+    vim.api.nvim_set_hl(0, "NeoTreeFileName", { fg = "#abb2bf" })
+    vim.api.nvim_set_hl(0, "MatchParen", { fg = "#000000", bg = "#E5C07B" })
 
--- local function auto_highlight_toggle()
---   local auto_highlight_group = vim.api.nvim_create_augroup('auto_highlight', { clear = true })
---
---   if vim.g.auto_highlight_active then
---     vim.api.nvim_del_augroup_by_id(auto_highlight_group)
---     vim.api.nvim_set_option('updatetime', 4000)
---     vim.g.auto_highlight_active = false
---     vim.fn.setreg('/', '')  -- Clear the search register
---   else
---     vim.api.nvim_create_autocmd('CursorHold', {
---       group = auto_highlight_group,
---       pattern = '*',
---       callback = function()
---         local cword = vim.fn.expand('<cword>')
---         vim.fn.setreg('/', '\\V\\<' .. vim.fn.escape(cword, '\\') .. '\\>')
---       end
---     })
---     vim.api.nvim_set_option('updatetime', 50)
---     vim.g.auto_highlight_active = true
---   end
---
---   return vim.g.auto_highlight_active
--- end
---
--- vim.keymap.set('n', '<Leader>fl', function()
---     if auto_highlight_toggle() then
---         vim.o.hlsearch = true
---     end
--- end, { noremap = true, silent = true, desc = "Toggle auto highlight" })
-
-
-
-
-
+  end,
+})
 

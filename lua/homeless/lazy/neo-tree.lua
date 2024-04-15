@@ -14,7 +14,6 @@ return {
       vim.fn.system("open " .. vim.fn.shellescape(cwd))
     end
 
-
     require("neo-tree").setup({
       window = {
         mappings = {
@@ -67,14 +66,17 @@ return {
 
 
       default_component_configs = {
+        name = {
+          use_git_status_colors = false,
+        },
         container = {
-          enable_character_fade = true
+          enable_character_fade = true,
         },
         git_status = {
           symbols = {
             -- Change type
-            added     = "", -- or "✚", but this is redundant info if you use git_status_colors on the name
-            modified  = "", -- or "", but this is redundant info if you use git_status_colors on the name
+            added     = "✚", -- or "✚", but this is redundant info if you use git_status_colors on the name
+            modified  = "", -- or "", but this is redundant info if you use git_status_colors on the name
             deleted   = "✖",-- this can only be used in the git_status source
             renamed   = "➜",-- this can only be used in the git_status source
             -- Status type
