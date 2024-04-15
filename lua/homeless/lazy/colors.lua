@@ -4,19 +4,8 @@ function ColorMyPencils(color)
   -- color = color or "happy_hacking"
   -- color = color or "hybrid_reverse"
   vim.cmd.colorscheme(color)
-
-  -- vim.api.nvim_set_hl(0, 'MatchParen', { ctermbg = 'Yellow', ctermfg = 'Black' })
-
   -- vim.api.nvim_set_hl(0, "Normal", { bg = "none" })
   -- vim.api.nvim_set_hl(0, "NormalFloat", { bg = "none" })
-
-
-  -- -- Set the highlighting for LineHighlight in Lua
-  -- vim.api.nvim_set_hl(0, 'LineHighlight', {
-  --   ctermbg = 'yellow',
-  --   ctermfg = 'darkgray',
-  -- })
-
 end
 
 return {
@@ -112,10 +101,8 @@ return {
         vim.api.nvim_set_hl(0, "RainbowCyan", { fg = "#56B6C2" })
       end)
 
-      require("ibl").setup { indent = { highlight = highlight } }
-
+      -- require("ibl").setup { indent = { highlight = highlight } }
+      require("ibl").setup {  }
     end
   },
-
-
 }

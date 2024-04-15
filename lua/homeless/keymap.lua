@@ -1,4 +1,4 @@
-vim.g.mapleader = ","
+vim.g.mapleader = " "
 vim.keymap.set('i', '<Leader>,', '<Esc>', { noremap = true })
 vim.keymap.set('v', '<Leader>,', '<Esc>', { noremap = true })
 

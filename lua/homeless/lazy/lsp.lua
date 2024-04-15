@@ -203,8 +203,9 @@ return {
 
     vim.keymap.set('n', 'ff', vim.lsp.buf.format, { silent = true, noremap = true })
 
-
-    vim.keymap.set('n', 'g[', vim.diagnostic.goto_prev, { silent = true, noremap = true })
-    vim.keymap.set('n', 'g]', vim.diagnostic.goto_next, { silent = true, noremap = true })
+    -- vim.keymap.set('n', 'g[', vim.diagnostic.goto_prev, { silent = true, noremap = true })
+    -- vim.keymap.set('n', 'g]', vim.diagnostic.goto_next, { silent = true, noremap = true })
+    vim.keymap.set('n', '[d', vim.diagnostic.goto_prev, { desc = 'Go to previous [D]iagnostic message' })
+    vim.keymap.set('n', ']d', vim.diagnostic.goto_next, { desc = 'Go to next [D]iagnostic message' })
   end
 }
