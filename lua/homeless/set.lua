@@ -38,13 +38,28 @@ vim.opt.signcolumn = "yes"
 -- vim.opt.isfname:append("@-@")
 
 vim.opt.updatetime = 50 -- 300
--- vim.opt.timeoutlen = 300
+vim.opt.timeoutlen = 500
 -- vim.opt.colorcolumn = "80"
 
 vim.opt.clipboard:append("unnamedplus")
 
 vim.opt.showmatch = true
 
+-- Enable autoread
+vim.o.autoread = true
+
+-- Create an autocommand in Lua to check for file changes
+vim.api.nvim_create_autocmd({"FocusGained", "BufEnter"}, {
+  pattern = "*",
+  callback = function()
+    vim.cmd('checktime')
+  end
+})
+
+-- Key mapping using vim.keymap.set for better readability and functionality
+vim.keymap.set('i', '<Tab>', function()
+  return vim.fn.pumvisible() == 1 and "\\<C-n>" or "\\<Tab>"
+end, {expr = true, noremap = true, silent = true})
 
 -- Use Lua API to create autocommands for cursorline highlighting
 vim.api.nvim_create_augroup('CursorLineHighlight', { clear = true })
