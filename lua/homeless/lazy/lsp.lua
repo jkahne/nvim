@@ -198,8 +198,8 @@ return {
     vim.keymap.set('n', 'gi', require('telescope.builtin').lsp_implementations, { silent = true, noremap = true })
     vim.keymap.set('n', 'gr', require('telescope.builtin').lsp_references, { silent = true, noremap = true })
     vim.keymap.set('n', '<leader>rn', vim.lsp.buf.rename, { silent = true, noremap = true })
-    -- vim.keymap.set('n', 'gq', vim.lsp.buf.code_action, { silent = true, noremap = true })
-    vim.keymap.set('n', '<leader>ca', vim.lsp.buf.code_action, { silent = true, noremap = true })
+    vim.keymap.set('n', 'gq', vim.lsp.buf.code_action, { silent = true, noremap = true })
+    -- vim.keymap.set('n', '<leader>ca', vim.lsp.buf.code_action, { silent = true, noremap = true })
 
     vim.keymap.set('n', 'ff', vim.lsp.buf.format, { silent = true, noremap = true })
 

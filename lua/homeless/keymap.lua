@@ -118,7 +118,62 @@ vim.api.nvim_create_user_command(
 -- end, { noremap = true, expr = true, silent = true })
 
 
+
+vim.api.nvim_create_autocmd("FileType", {
+    pattern = "elixir",
+    callback = function()
+        vim.keymap.set('n', '<leader>dr', ':!mix format<CR>', { noremap = true, silent = true, buffer = true })
+    end,
+    group = vim.api.nvim_create_augroup("ElixirSettings", { clear = true })
+})
+
+vim.api.nvim_create_autocmd("FileType", {
+    pattern = "ruby",
+    callback = function()
+        vim.keymap.set('n', '<leader>dr', ':!bundle exec standardrb --fix<CR><CR>', { noremap = true, silent = true, buffer = true })
+        -- vim.keymap.set('n', '<leader>dc', ':!bin/ci<CR><CR>', { noremap = true, silent = true, buffer = true })
+    end,
+    group = vim.api.nvim_create_augroup("RubySettings", { clear = true })
+})
+
+
 vim.api.nvim_set_keymap('i', '<C-y>', '<C-y>', { noremap = true, silent = true })
 vim.api.nvim_set_keymap('c', '<C-y>', '<C-y>', { noremap = true, silent = true })
 
+-- Close the current buffer and move to the previous one
+vim.keymap.set('n', '<leader>bd', ':bp <bar> bd #<CR>', { noremap = true, silent = true })
+-- Close all buffers except the current one
+vim.keymap.set('n', '<leader>bo', ':up <bar> %bd <bar> e#<CR>', { noremap = true, silent = true })
+-- Switch between current and last buffer
+vim.keymap.set('n', '<Leader>c', '<C-^><CR>', { noremap = false, silent = true })
+
+
+
+
+-- Lua function to merge tabs in Neovim
+function MergeTabs()
+    -- Check if only one tab is open
+    if vim.fn.tabpagenr() == 1 then
+        return
+    end
+
+    -- Get the current buffer name
+    local bufferName = vim.fn.bufname("%")
+
+    -- Check if it's the last tab page, then close it and switch to the previous one
+    if vim.fn.tabpagenr("$") == vim.fn.tabpagenr() then
+        vim.cmd('close!')
+    else
+        vim.cmd('close!')
+        vim.cmd('tabprev')
+    end
+
+    -- Split the window and load the buffer
+    vim.cmd('split')
+    vim.cmd('buffer ' .. bufferName)
+end
+
+-- Mapping the function to a key or calling it in Lua
+-- For example, to call this function you can bind it to a key:
+vim.api.nvim_set_keymap('n', '<C-w>u', ':lua MergeTabs()<CR>', {noremap = true, silent = true})
 
