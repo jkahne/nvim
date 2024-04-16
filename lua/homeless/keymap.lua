@@ -1,6 +1,9 @@
-vim.g.mapleader = ","
+vim.g.mapleader = " "
 vim.keymap.set('i', '<Leader>,', '<Esc>', { noremap = true })
 vim.keymap.set('v', '<Leader>,', '<Esc>', { noremap = true })
+vim.keymap.set('i', 'jj', '<Esc>', { noremap = true })
+vim.keymap.set('i', ',,', '<Esc>', { noremap = true })
+vim.keymap.set('v', ',,', '<Esc>', { noremap = true })
 
 vim.keymap.set('n', 'go', 'o<Esc>', { noremap = false })
 vim.keymap.set('n', 'gO', 'O<Esc>', { noremap = false })
@@ -97,6 +100,7 @@ vim.keymap.set({'n', 'v', 'o'}, '0', '^', { noremap = false })
 vim.keymap.set('n', '<Leader>sn', ':tab drop /Users/jkahne/Library/Mobile\\ Documents/iCloud~md~obsidian/Documents/Brain/06\\ Utilities/scratch.md<CR>', { noremap = true })
 vim.keymap.set('n', '<Leader>vn', ':tab drop /Users/jkahne/Library/Mobile\\ Documents/iCloud~md~obsidian/Documents/Brain/06\\ Utilities/vimnotes.md<CR>', { noremap = true })
 
+vim.keymap.set({ 'n', 'v' }, '<space>', '<Nop>', { silent = true })
 
 vim.api.nvim_create_user_command(
   'W',
