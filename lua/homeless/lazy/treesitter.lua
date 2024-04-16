@@ -7,7 +7,8 @@ return {
       ensure_installed = {
         "css", "dockerfile", "html",
         "elixir", "heex", "eex",
-        "javascript", "json", "json5", "lua", "markdown",
+        "javascript", "json", "json5", "lua",
+        "markdown", "markdown_inline",
         "sql", "tsx", "typescript", "ruby",
         "embedded_template", "bash", "astro", "c",
         "vimdoc", "jsdoc"

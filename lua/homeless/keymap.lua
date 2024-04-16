@@ -31,8 +31,8 @@ vim.keymap.set('n', '<C-J>', '<C-W>j', { noremap = false })
 vim.keymap.set('n', '<C-K>', '<C-W>k', { noremap = false })
 vim.keymap.set('n', '<C-L>', '<C-W>l', { noremap = false })
 
-vim.keymap.set("n", "<C-b>", "<cmd>cprev<CR>zz")
-vim.keymap.set("n", "<C-f>", "<cmd>cnext<CR>zz")
+vim.keymap.set("n", "<C-b>", "<cmd>bprev<CR>zz")
+vim.keymap.set("n", "<C-f>", "<cmd>bnext<CR>zz")
 
 vim.keymap.set('i', '<C-h>', '<Left>', { noremap = true })
 vim.keymap.set('i', '<C-j>', '<Down>', { noremap = true })
@@ -97,8 +97,8 @@ vim.keymap.set('n', '<Leader><space>', ':noh<CR>', { noremap = true })
 vim.keymap.set({'n', 'v', 'o'}, '0', '^', { noremap = false })
 
 -- Scratch and Vim notes with leader key for quick access
-vim.keymap.set('n', '<Leader>sn', ':tab drop /Users/jkahne/Library/Mobile\\ Documents/iCloud~md~obsidian/Documents/Brain/06\\ Utilities/scratch.md<CR>', { noremap = true })
-vim.keymap.set('n', '<Leader>vn', ':tab drop /Users/jkahne/Library/Mobile\\ Documents/iCloud~md~obsidian/Documents/Brain/06\\ Utilities/vimnotes.md<CR>', { noremap = true })
+vim.keymap.set('n', '<Leader>sn', ':tab drop /Users/jkahne/Library/Mobile\\ Documents/iCloud~md~obsidian/Documents/Brain/*99\\ Meta/scratch.md<CR>', { noremap = true })
+vim.keymap.set('n', '<Leader>vn', ':tab drop /Users/jkahne/Library/Mobile\\ Documents/iCloud~md~obsidian/Documents/Brain/*99\\ Meta/vimnotes.md<CR>', { noremap = true })
 
 vim.keymap.set({ 'n', 'v' }, '<space>', '<Nop>', { silent = true })
 
