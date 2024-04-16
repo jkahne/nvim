@@ -9,19 +9,20 @@ return {
   },
   config = function ()
 
-    function OpenCurrentDirectoryInFinder()
-      local cwd = vim.fn.getcwd()
-      vim.fn.system("open " .. vim.fn.shellescape(cwd))
-    end
-
     require("neo-tree").setup({
       window = {
         mappings = {
+          ["<space>"] = "toggle_or_close",
           ["P"] = { "toggle_preview", config = { use_float = false, use_image_nvim = false } },
-          ["F"] = OpenCurrentDirectoryInFinder,
+          ["F"] = "system_open",
           ["l"] = "noop",
           ["/"] = "noop",
+
+          ["C"] = "copy_to_clipboard",
+          ["X"] = "cut_to_clipboard",
+          ["V"] = "paste_from_clipboard",
           ["x"] = "close_node",
+
           ["m"] = { "move", config = { show_path = "absolute"} },
           ["oc"] =  "noop",
           ["od"] =  "noop",
@@ -30,7 +31,28 @@ return {
           ["os"] =  "noop",
           ["ot"] =  "noop",
           ["og"] =  "noop"
-        }
+        },
+
+      },
+      commands = {
+        system_open = function(state)
+          local node = state.tree:get_node()
+          local path = node:get_id()
+          if node.type == 'file' then
+            local lastSlashIndex = path:match("^.+()/[^/]*$") -- Match the last slash and everything before it
+            path = path:sub(1, lastSlashIndex - 1) -- Extract substring before the last slash
+          end
+
+          vim.fn.jobstart({ "open", "-g", path }, { detach = true })
+        end,
+        toggle_or_close = function(state)
+          local node = state.tree:get_node()
+          if node.type == 'file' then
+            require('neo-tree.sources.filesystem.commands').close_node(state)
+          elseif node.type == 'directory' then
+            require('neo-tree.sources.filesystem.commands').toggle_node(state)
+          end
+        end
       },
       close_if_last_window = true, -- Close Neo-tree if it is the last window left in the tab
       popup_border_style = "rounded",
