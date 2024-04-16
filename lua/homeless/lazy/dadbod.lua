@@ -12,6 +12,8 @@ return {
       require("cmp").setup.buffer { sources = { { name = "vim-dadbod-completion" } } }
     end
 
+    vim.keymap.set("n", "<leader>db",  ":DBUIToggle<CR>")
+
     vim.g.db_ui_use_nerd_fonts = 1
     vim.g.db_ui_save_location = vim.fn.stdpath "config" .. require("plenary.path").path.sep .. "db_ui"
 
