@@ -16,10 +16,11 @@ return {
     "s1n7ax/nvim-window-picker",
     -- see below for full list of optional dependencies 👇
   },
-  config = function()
-
+  init = function()
     vim.g.vim_markdown_frontmatter = 1
     vim.wo.conceallevel = 2
+  end,
+  config = function()
 
     require('obsidian').setup({
       workspaces = {
@@ -79,7 +80,7 @@ return {
             return require("obsidian").util.smart_action()
           end,
           opts = { buffer = true, expr = true },
-        }
+        },
       },
 
       -- Optional, customize how note IDs are generated given an optional title.
@@ -115,13 +116,13 @@ return {
 
 
       -- Optional, for templates (see below).
-      templates = {
-        subdir = "99 Meta/__templates",
-        date_format = "%Y-%m-%d",
-        time_format = "%H:%M",
-        -- A map for custom variables, the key should be the variable and the value a function
-        substitutions = {},
-      },
+      -- templates = {
+      --   subdir = "99 Meta/__templates",
+      --   date_format = "%Y-%m-%d",
+      --   time_format = "%H:%M",
+      --   -- A map for custom variables, the key should be the variable and the value a function
+      --   substitutions = {},
+      -- },
       --
       picker = {
         -- Set your preferred picker. Can be one of 'telescope.nvim', 'fzf-lua', or 'mini.pick'.

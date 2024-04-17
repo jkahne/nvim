@@ -11,18 +11,25 @@ return {
     end
   },
   { 'tpope/vim-abolish' },
-  { "preservim/vim-pencil" },
+  {
+    "preservim/vim-pencil",
+    init = function()
+      vim.g["pencil#wrapModeDefault"] = "soft"
+    end,
+  },
+
+
   { 'tpope/vim-endwise' },
   { 'kshenoy/vim-signature' },
   { 'rizzatti/dash.vim' },
   { 'eandrju/cellular-automaton.nvim',
-    config =function()
+    init = function()
       vim.keymap.set('n', '<leader>fml', '<cmd>CellularAutomaton make_it_rain<cr>', { noremap = false, silent = true })
     end
   },
   {
     'mhinz/vim-signify',
-    config=function()
+    init = function()
       vim.g.signify_update_on_bufenter = 1
       vim.g.signify_update_on_focusgained = 1
     end},

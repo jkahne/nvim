@@ -140,8 +140,11 @@ return {
 
     })
 
+
+  end,
+  init = function()
     vim.keymap.set('n', 'gt', ':Neotree toggle<CR>', {noremap = true, silent = true})
     vim.keymap.set('n', '<leader>gt', ':Neotree reveal<CR>', {})
-
   end
+
 }
