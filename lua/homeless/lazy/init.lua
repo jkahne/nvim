@@ -214,5 +214,70 @@ return {
       -- },
     },
   },
+  {
+    "tris203/hawtkeys.nvim",
+    dependencies = {
+      "nvim-lua/plenary.nvim",
+      "nvim-treesitter/nvim-treesitter",
+    },
+    config = {
+      -- an empty table will work for default config
+      --- if you use functions, or whichkey, or lazy to map keys
+      --- then please see the API below for options
+    },
+  },
+  {
+    's1n7ax/nvim-window-picker',
+    name = 'window-picker',
+    event = 'VeryLazy',
+    version = '2.*',
+    config = function()
+      require'window-picker'.setup({
+        highlights = {
+          statusline = {
+            focused = {
+              fg = '#000000',
+              bg = '#72C0FF',
+              bold = true,
+            },
+            unfocused = {
+              fg = '#000000',
+              bg = '#61AFEF',
+              bold = true,
+            },
+          },
+          winbar = {
+            focused = {
+              fg = '#000000',
+              bg = '#e35e4f',
+              bold = true,
+            },
+            unfocused = {
+              fg = '#000000',
+              bg = '#44cc41',
+              bold = true,
+            },
+          },
+        },
+      })
+
+      local picker = require('window-picker')
+
+      -- Swap two windows using the awesome window picker
+      local function swap_windows()
+        local window = picker.pick_window({
+          include_current_win = false
+        })
+        local target_buffer = vim.fn.winbufnr(window)
+        -- Set the target window to contain current buffer
+        vim.api.nvim_win_set_buf(window, 0)
+        -- Set current window to contain target buffer
+        vim.api.nvim_win_set_buf(0, target_buffer)
+      end
+
+      vim.keymap.set('n', ',ws', swap_windows, { desc = 'Window Swap' })
+    end,
+  },
+
 }
 
