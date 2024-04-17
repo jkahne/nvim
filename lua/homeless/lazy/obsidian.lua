@@ -13,7 +13,7 @@ return {
   dependencies = {
     -- Required.
     "nvim-lua/plenary.nvim",
-
+    "s1n7ax/nvim-window-picker",
     -- see below for full list of optional dependencies 👇
   },
   config = function()
@@ -99,10 +99,19 @@ return {
         end
       end,
 
+      -- Optional, by default when you use `:ObsidianFollowLink` on a link to an external
+      -- URL it will be ignored but you can customize this behavior here.
+      ---@param url string
+      follow_url_func = function(url)
+        -- Open the URL in the default web browser.
+        vim.fn.jobstart({"open", url})  -- Mac OS
+        -- vim.fn.jobstart({"xdg-open", url})  -- linux
+      end,
+
       -- Where to put new notes. Valid options are
       --  * "current_dir" - put new notes in same directory as the current buffer.
       --  * "notes_subdir" - put new notes in the default notes subdirectory.
-      new_notes_location = "notes_subdir",
+      new_notes_location = "current_dir",
 
 
       -- Optional, for templates (see below).

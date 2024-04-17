@@ -40,7 +40,7 @@ vim.opt.signcolumn = "yes"
 
 vim.opt.updatetime = 50 -- 300
 vim.opt.timeoutlen = 500
--- vim.opt.colorcolumn = "80"
+-- vim.o.timeoutlen = 500 -- or is it this?
 
 vim.opt.clipboard:append("unnamedplus")
 
