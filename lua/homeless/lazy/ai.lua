@@ -1,5 +1,23 @@
 return {
-  { 'github/copilot.vim' },
+  -- { 'github/copilot.vim' },
+  {
+    "zbirenbaum/copilot-cmp",
+    event = "InsertEnter",
+    dependencies = { "zbirenbaum/copilot.lua" },
+    config = function()
+      vim.defer_fn(function()
+        -- require("copilot").setup() -- https://github.com/zbirenbaum/copilot.lua/blob/master/README.md#setup-and-configuration
+
+        require("copilot").setup({
+          suggestion = { enabled = false },
+          panel = { enabled = false },
+        })
+
+        require("copilot_cmp").setup() -- https://github.com/zbirenbaum/copilot-cmp/blob/master/README.md#configuration
+      end, 100)
+    end,
+  },
+
   {
   'robitx/gp.nvim',
   config = function()
@@ -18,7 +36,7 @@ return {
           chat = true,
           command = false,
           -- string with model name or table with model name and parameters
-          model = { model = "gpt-4-0125-preview", temperature = 1.1, top_p = 1 },
+          model = { model = "gpt-4-turbo-2024-04-09", temperature = 1.1, top_p = 1 },
           -- system prompt (use this to specify the persona/role of the AI)
           system_prompt = "You are a general AI assistant.\n\n"
             .. "The user provided the additional info about how they would like you to respond:\n\n"
@@ -35,7 +53,7 @@ return {
           chat = false,
           command = true,
           -- string with model name or table with model name and parameters
-          model = { model = "gpt-4-0125-preview", temperature = 0.8, top_p = 1 },
+          model = { model = "gpt-4-turbo-2024-04-09", temperature = 0.8, top_p = 1 },
           -- system prompt (use this to specify the persona/role of the AI)
           system_prompt = "You are an AI working as a code editor.\n\n"
             .. "Please AVOID COMMENTARY OUTSIDE OF THE SNIPPET RESPONSE.\n"
@@ -63,7 +81,7 @@ return {
       },
 
       -- chat topic model (string with model name or table with model name and parameters)
-      chat_topic_gen_model = "gpt-4-0125-preview",
+      chat_topic_gen_model = "gpt-4-turbo-2024-04-09",
     })
 
   end
