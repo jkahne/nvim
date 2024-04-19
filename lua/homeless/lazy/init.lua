@@ -46,16 +46,28 @@ return {
     'windwp/nvim-ts-autotag',
     config = true
   },
+  -- {
+  --   'smoka7/hop.nvim',
+  --   version = "*",
+  --   opts = {},
+  --   config = function()
+  --     require('hop').setup({
+  --       vim.keymap.set('n', 's', ':HopChar2<CR>', { noremap = true, silent = true })
+  --     })
+  --   end
+  -- },
+
   {
-    'smoka7/hop.nvim',
-    version = "*",
-    opts = {},
-    config = function()
-      require('hop').setup({
-        vim.keymap.set('n', 's', ':HopChar2<CR>', { noremap = true, silent = true })
-      })
+    "ggandor/leap.nvim",
+    config=function()
+      vim.keymap.set('n', ' ', function ()
+        require('leap').leap {
+          target_windows = require('leap.user').get_focusable_windows()
+        }
+      end)
     end
   },
+
   {
     "azabiong/vim-highlighter",
     init = function()
