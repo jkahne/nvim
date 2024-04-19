@@ -28,7 +28,7 @@ return {
           name = "worknotes",
           path = "~/projects/worknotes",
           overrides = {
-            notes_subdir = "05 Fleeting",
+            notes_subdir = "00 Inbox",
           },
         },
         {
