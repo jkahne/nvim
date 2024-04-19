@@ -25,8 +25,8 @@ return {
     require('obsidian').setup({
       workspaces = {
         {
-          name = "Brain",
-          path = "~/Library/Mobile Documents/iCloud~md~obsidian/Documents/Brain/",
+          name = "worknotes",
+          path = "~/projects/worknotes",
           overrides = {
             notes_subdir = "05 Fleeting",
           },
