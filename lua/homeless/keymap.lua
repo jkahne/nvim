@@ -46,35 +46,16 @@ vim.api.nvim_set_keymap('i', '<leader>k', '<Plug>(snippy-previous)', {silent = t
 -- Mappings for =>, <%= %>, and #{}
 vim.keymap.set('i', '<C-Enter>', ' => ', { noremap = true })
 vim.keymap.set('i', '<C-;>', '- [ ] ', { noremap = true })
--- vim.keymap.set('i', '<C-,>', '<%=  %>', { noremap = true })
--- vim.keymap.set('n', '<C-,>', 'i<%=  %>', { noremap = true })
--- vim.keymap.set('i', '<C-.>', '#{  }', { noremap = true })
--- vim.keymap.set('n', '<C-.>', 'i#{  }', { noremap = true })
---
--- -- Leader key mappings for #{}, ${}, and %{}
--- vim.keymap.set('i', '<Leader>3', '#{  }', { noremap = true })
--- vim.keymap.set('n', '<Leader>3', 'i#{  }', { noremap = true })
--- vim.keymap.set('i', '<Leader>4', '${  }', { noremap = true })
--- vim.keymap.set('n', '<Leader>4', 'i${  }', { noremap = true })
--- vim.keymap.set('i', '<Leader>5', '%{  }', { noremap = true })
--- vim.keymap.set('n', '<Leader>5', 'i%{  }', { noremap = true })
-
--- Positioning corrections with cursor movements after inserting templates
-vim.keymap.set('i', '<C-,>', function() vim.api.nvim_feedkeys(vim.api.nvim_replace_termcodes('<%=  %><Left><Left><Left>', true, false, true), 'n', true) end, { noremap = true })
-vim.keymap.set('n', '<C-,>', function() vim.api.nvim_feedkeys(vim.api.nvim_replace_termcodes('i<%=  %><Left><Left><Left>', true, false, true), 'n', true) end, { noremap = true })
-vim.keymap.set('i', '<C-.>', function() vim.api.nvim_feedkeys(vim.api.nvim_replace_termcodes('#{  }<Left><Left>', true, false, true), 'n', true) end, { noremap = true })
-vim.keymap.set('n', '<C-.>', function() vim.api.nvim_feedkeys(vim.api.nvim_replace_termcodes('i#{  }<Left><Left>', true, false, true), 'n', true) end, { noremap = true })
-
--- TODO:  does this work?
--- vim.keymap.set('n', "<C-,>", [[<%=  %><Left><Left><Left>]])
--- vim.keymap.set('i', "<C-,>", [[<%=  %><Left><Left><Left>]])
-
-vim.keymap.set('i', '<Leader>3', function() vim.api.nvim_feedkeys(vim.api.nvim_replace_termcodes('#{  }<Left><Left>', true, false, true), 'n', true) end, { noremap = true })
-vim.keymap.set('n', '<Leader>3', function() vim.api.nvim_feedkeys(vim.api.nvim_replace_termcodes('i#{  }<Left><Left>', true, false, true), 'n', true) end, { noremap = true })
-vim.keymap.set('i', '<Leader>4', function() vim.api.nvim_feedkeys(vim.api.nvim_replace_termcodes('${  }<Left><Left>', true, false, true), 'n', true) end, { noremap = true })
-vim.keymap.set('n', '<Leader>4', function() vim.api.nvim_feedkeys(vim.api.nvim_replace_termcodes('i${  }<Left><Left>', true, false, true), 'n', true) end, { noremap = true })
-vim.keymap.set('i', '<Leader>5', function() vim.api.nvim_feedkeys(vim.api.nvim_replace_termcodes('%{  }<Left><Left>', true, false, true), 'n', true) end, { noremap = true })
-vim.keymap.set('n', '<Leader>5', function() vim.api.nvim_feedkeys(vim.api.nvim_replace_termcodes('i%{  }<Left><Left>', true, false, true), 'n', true) end, { noremap = true })
+vim.keymap.set('n', "<C-,>", 'i<%=  %><Left><Left><Left>')
+vim.keymap.set('i', "<C-,>", '<%=  %><Left><Left><Left>')
+vim.keymap.set('n', "<C-.>", 'i#{  }<Left><Left>')
+vim.keymap.set('i', "<C-.>", '#{  }<Left><Left>')
+vim.keymap.set('n', "<leader>3", 'i#{  }<Left><Left>')
+vim.keymap.set('i', "<leader>3", '#{  }<Left><Left>')
+vim.keymap.set('n', "<leader>4", 'i${  }<Left><Left>')
+vim.keymap.set('i', "<leader>4", '${  }<Left><Left>')
+vim.keymap.set('n', "<leader>5", 'i%{  }<Left><Left>')
+vim.keymap.set('i', "<leader>5", '%{  }<Left><Left>')
 
 -- undo break points
 vim.keymap.set('i', ',', ',<C-g>u', { noremap = true })
