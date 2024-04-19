@@ -43,8 +43,9 @@ return {
             path = path:sub(1, lastSlashIndex - 1) -- Extract substring before the last slash
           end
 
-          vim.fn.jobstart({ "open", "-g", path }, { detach = true })
+          vim.fn.jobstart({ "open", path }, { detach = true })
         end,
+
         toggle_or_close = function(state)
           local node = state.tree:get_node()
           if node.type == 'file' then
